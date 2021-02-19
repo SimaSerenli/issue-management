@@ -5,8 +5,10 @@ import com.temelt.issuemanagement.repo.IssueHistoryRepository;
 import com.temelt.issuemanagement.services.IssueHistoryService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
-public class IssueHistoryServiceImplementation implements IssueHistoryService{
+@Service
+public class IssueHistoryServiceImplementation implements IssueHistoryService {
     private final IssueHistoryRepository issueHistoryRepository;
 
     public IssueHistoryServiceImplementation(IssueHistoryRepository issueHistoryRepository) {
@@ -15,7 +17,7 @@ public class IssueHistoryServiceImplementation implements IssueHistoryService{
 
     @Override
     public IssueHistory save(IssueHistory issueHistory) {
-        if (issueHistory.getDate()==null){
+        if (issueHistory.getDate() == null) {
             throw new IllegalArgumentException("date cannot be null");
         }
         return issueHistoryRepository.save(issueHistory);

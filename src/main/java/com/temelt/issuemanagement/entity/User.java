@@ -20,7 +20,7 @@ public class User extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "uName",length = 100,unique = true)
+    @Column(name = "userName",length = 100,unique = true)
     private String userName;
 
     @Column(name = "nameSurname",length = 300)
@@ -32,7 +32,7 @@ public class User extends BaseEntity {
     @Column(name = "email",length = 100)
     private String email;
 
-    @JoinColumn(name = "issues")
+    @JoinColumn(name = "assignee_user_id")
     @OneToMany(fetch = FetchType.LAZY)
     //bir kullanıcıya birçok ıssue bağlanabilir
     private List<Issue> issues;

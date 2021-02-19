@@ -1,7 +1,6 @@
 package com.temelt.issuemanagement.entity;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -12,6 +11,7 @@ import java.util.Date;
 @ToString
 @EqualsAndHashCode
 @Table(name = "issueHistory")
+
 
 public class IssueHistory extends BaseEntity {
     @Id

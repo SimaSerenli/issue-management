@@ -5,7 +5,10 @@ import com.temelt.issuemanagement.repo.UserRepository;
 import com.temelt.issuemanagement.services.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class UserServiceImplementation implements UserService {
     private final UserRepository userRepository;
 
@@ -32,6 +35,6 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public User getByUserName(String userName) {
-        return userRepository.findByUsername(userName);
+        return userRepository.findByUserName(userName);
     }
 }

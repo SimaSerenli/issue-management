@@ -5,9 +5,11 @@ import com.temelt.issuemanagement.repo.ProjectRepository;
 import com.temelt.issuemanagement.services.ProjectService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProjectServiceImplementation implements ProjectService {
     private final ProjectRepository projectRepository;
 

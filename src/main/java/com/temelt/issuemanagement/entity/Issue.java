@@ -1,12 +1,13 @@
 package com.temelt.issuemanagement.entity;
 
 import lombok.*;
-import org.apache.catalina.User;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "issue")
+//veritababınında ISsue bir tabloya denk geldiği için entity anotation ı eklenir
 @Data
 @NoArgsConstructor
 //nesnenin boş bir constructor ını yaratır
@@ -14,8 +15,6 @@ import java.util.Date;
 // tüm fieldlar kullanılarak oluşturulmuş constructor
 @ToString
 @EqualsAndHashCode
-@Table(name = "issue")
-//veritababınında ISsue bir tabloya denk geldiği için entity anotation ı eklenir
 public class Issue extends BaseEntity{
     @Id
     //ıssue nun bir entity olması için gerekli olan zorunluluk id dir
@@ -40,14 +39,16 @@ public class Issue extends BaseEntity{
     @Column(name = "details",length = 4000)
     private String details;
 
-    @JoinColumn(name = "assignee_user_id")
+
     @ManyToOne(optional = true,fetch = FetchType.LAZY)
+    @JoinColumn(name = "assignee_user_id")
+    private User assignee;
     //bircok issue class ı tek user a bağlanabilir
     //optional true bir issue oluşturulurken onun assignee sini vermesen de olur
     //lazy gerek duyulduğunda verileri getirir
-    private User assignee;
 
-    @JoinColumn(name = "project_id")
+
     @ManyToOne(optional = true,fetch = FetchType.LAZY)
+    @JoinColumn(name = "project_id")
     private Project project;
 }
